@@ -1,0 +1,53 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+.card{
+    width: 250px;
+    aspect-ratio: 1/1;
+    background-color: blue;
+    margin: 25px auto;
+    position: relative;
+    border: 2px solid;
+    border-radius: 5px;
+    transition: flip 2s;
+    transform-style: preserve-3d;
+}
+
+:is(front, .back, img[alt=Killua]){
+    width: 100%;
+}
+
+img[alt="Killua"]{
+    aspect-ratio: 1/1;
+}
+
+.front, .back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+.back {
+    z-index: -1;
+}
+
+.front {
+    aspect-ratio: 1/1;
+    background-image: linear-gradient(to right,blue,maroon);
+    color: white;
+}
+
+.card:hover .front{
+    transform: translateY(-180px);
+    opacity: 0;
+}
